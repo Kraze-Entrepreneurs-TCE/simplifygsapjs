@@ -27,6 +27,6 @@ for (var i = 0; i < animated_ele.length; i++) {
     
     // console.log(ease);
     // console.log(duration);
-    gsap.from(element,{ease:`${ease}`,stagger:{each:each,from:`${from}`},y:y,repeat:repeat});
+    gsap.from(element,{ease:`${ease}`,stagger:{each:each,from:`${from}`},y:y,repeat:repeat,yoyo:yoyo,x:x});
     
 }
