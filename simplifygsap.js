@@ -17,7 +17,7 @@ animated_ele=document.getElementsByClassName("stagger-animation");
 for (var i = 0; i < animated_ele.length; i++) {
     element=animated_ele.item(i);
    
-    var repeat = parseInt (undefined ? delete element.repeat:element.dataset.repeat);
+    var repeat = parseInt (element.dataset.repeat === undefined ? 2:element.dataset.repeat);
     var each = parseFloat(undefined ? delete element.each:(element.dataset.each));
     var ease = undefined ? delete element.ease:(element.dataset.ease);
     var from = undefined ? delete element.from:(element.dataset.from);
