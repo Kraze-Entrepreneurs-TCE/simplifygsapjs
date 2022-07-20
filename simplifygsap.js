@@ -13,7 +13,6 @@ for (var i = 0; i < animated_ele.length; i++) {
 }
 
 animated_ele=document.getElementsByClassName("stagger-animation");
-// console.log(animated_ele);
 
 for (var i = 0; i < animated_ele.length; i++) {
     element=animated_ele.item(i);
