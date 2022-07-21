@@ -30,3 +30,17 @@ for (var i = 0; i < animated_ele.length; i++) {
     gsap.from(element,{ease:`${ease}`,stagger:{each:each,from:`${from}`},y:y,repeat:repeat,yoyo:yoyo,x:x});
     
 }
+
+gsap.to(".stagger-Animat", {
+    duration: 1,
+    scale: 0.1,
+    y: 40,
+    ease: "power1.inOut",
+    repeat:-1,
+    stagger: {
+      grid: [7,15],
+      from: "center",
+      
+      each:1
+    }
+  });
