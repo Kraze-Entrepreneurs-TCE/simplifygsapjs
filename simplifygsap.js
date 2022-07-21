@@ -89,3 +89,76 @@ for (var i = 0; i < animated_ele.length; i++) {
     { duration: duration1, x: x1, opacity: opacity1, y: y1, ease: `${ease1}`, delay: delay1, repeat: repeat1 });
     
 }
+  
+
+
+// timeline logic
+animated_ele = document.getElementsByClassName("timeline");
+
+let sequence_items = []
+let sequence_options = []
+for (var i = 0; i < animated_ele.length; i++) {
+
+    
+    element = animated_ele.item(i);
+    if (element.dataset.sequence=== undefined) {
+        continue;
+    }
+    var sequence = parseInt(element.dataset.sequence=== undefined ? 0 : element.dataset.sequence);
+  
+ 
+      
+        sequence_items.splice(sequence,0, element);
+    
+
+}
+sequence_items.forEach(item => {
+    var sequence = parseInt(element.dataset.sequence=== undefined ? 0 : element.dataset.sequence);
+    const ease = item.dataset.ease === undefined ? undefined: item.dataset.ease;
+    const delay = item.dataset.delay === undefined ? undefined: item.dataset.delay;
+    const duration = parseFloat(item.dataset.duration === undefined ? undefined: item.dataset.duration);
+    const opacity = parseFloat(item.dataset.opacity === undefined ? 0: item.dataset.opacity);
+    const y = parseInt(item.dataset.y === undefined ? undefined: item.dataset.y);
+    const x = parseInt(item.dataset.x === undefined ? undefined: item.dataset.x);
+    const rotate = parseInt(item.dataset.rotate === undefined ? undefined: item.dataset.rotate);
+    const position = (item.dataset.position === undefined ? undefined: item.dataset.position);
+    const method = (item.dataset.method === undefined ? undefined: item.dataset.method);
+    const yoyo = (item.dataset.yoyo === undefined ? undefined: item.dataset.yoyo);
+    const repeatDelay = (item.dataset.repeatDelay === undefined ? undefined: item.dataset.repeatDelay);
+    options={
+        ease,
+        duration,
+        opacity,
+        y,
+        x,
+        rotate,
+        delay,
+        repeatDelay,
+        position,
+        yoyo,
+        method,
+    }
+    sequence_options.push(options)
+});
+var tl=gsap.timeline()
+for (let i = 0; i < sequence_items.length; i++) {
+    const ele = sequence_items[i];
+    const opt = sequence_options[i]
+    const del = opt.position;
+    delete opt.position;
+    const metho_d = opt.method;
+    delete opt.method;
+    if (metho_d =='from') {
+        tl.from(ele,opt,del);
+    } else {
+        tl.to(ele,opt,del);
+    }
+   
+    
+}
+
+
+
+
+
+ 
