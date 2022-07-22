@@ -112,6 +112,21 @@ for (var i = 0; i < animated_ele.length; i++) {
     
 
 }
+
+gsap.to(".stagger-Animat", {
+    duration: 1,
+    scale: 0.1,
+    y: 40,
+    ease: "power1.inOut",
+    repeat:-1,
+    stagger: {
+      grid: [7,15],
+      from: "center",
+      
+      each:1
+    }
+  });
+
 sequence_items.forEach(item => {
     var sequence = parseInt(element.dataset.sequence=== undefined ? 0 : element.dataset.sequence);
     const ease = item.dataset.ease === undefined ? undefined: item.dataset.ease;
